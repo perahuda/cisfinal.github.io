@@ -1,0 +1,714 @@
+@media (max-width: 1199px) {
+    .logoWrapper {
+
+        img,
+        svg {
+            height: 70px;
+        }
+
+        svg {
+            max-width: 100px;
+        }
+    }
+
+    .pageHeader {
+        height: auto;
+        padding-top: 55px;
+        padding-bottom: 10px;
+
+        .menuWrapper {
+            .linkMenu {
+                line-height: 22px;
+            }
+        }
+
+        .phonesWrapper {
+            padding-right: 0;
+
+            .timetable {
+                text-align: right;
+            }
+        }
+
+        .listSourceLinks {
+            position: absolute;
+            top: 0;
+            padding: 10px 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid #fff;
+
+            li {
+                float: right;
+
+                &:first-child {
+                    float: left;
+                }
+            }
+        }
+    }
+
+    .bulletBlock {
+        .bulletInner {
+            .bulletText {
+                width: 520px;
+                padding-right: 30px;
+                @include font(18px, 24px, null, null, null);
+            }
+        }
+    }
+
+    .mainHero {
+        .backWrapper {
+            width: calc(520px + (100vw - 920px) / 2);
+            height: 328px;
+
+            &:before {
+                border-right: 105px solid transparent;
+                border-left: 105px solid $mainColor;
+                border-bottom: 164px solid $mainColor;
+                border-top: 164px solid transparent;
+            }
+        }
+
+        .heroInner {
+            height: 328px;
+        }
+
+        .heroCaption {
+            padding: 40px 40px 40px 0;
+            width: calc(100% - 400px);
+
+            .caption {
+                @include font(36px, 48px, null, null, null);
+            }
+        }
+
+        .offers,
+        .aboutPage {
+            width: 400px;
+        }
+
+        .listOffers,
+        .aboutPage {
+            padding: 30px 20px;
+
+            &:before {
+                width: 100%;
+                left: 0;
+            }
+
+            li {
+                padding-left: 52px;
+
+                &+li {
+                    margin-top: 30px;
+                }
+
+                .icon {
+                    @include font(36px, 36px, null, null, null);
+                }
+            }
+
+            li,
+            p {
+                @include font(16px, 24px, null, null, null);
+            }
+        }
+
+        &.mainHeroInnerPage {
+            .backWrapper {
+                height: 200px;
+
+                &:before {
+                    border-bottom: 100px solid $mainColor;
+                    border-top: 100px solid transparent;
+                }
+            }
+
+            .heroInner {
+                height: 200px;
+            }
+        }
+    }
+
+    .addHero {
+        .slideItem {
+            width: 100%;
+
+            .slideHead {
+                height: 56px;
+            }
+
+            .caption {
+                @include font(18px, 22px, null, null, null);
+            }
+
+            .slideContent {
+                li {
+                    line-height: 24px;
+                }
+
+                .mean {
+                    margin-top: 24px;
+                }
+
+                .meanCaption {
+                    line-height: 24px;
+                }
+
+                .meanList {
+                    li {
+                        padding-left: 24px;
+
+                        &:before {
+                            @include font(14px, 24px, null, null, null);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .aboutBlock {
+        .blockInner {
+            width: calc(100% - 370px);
+            padding: 30px 30px 50px 0;
+
+            &:before {
+                width: calc(100% + (100vw - 920px) / 2);
+            }
+        }
+
+        .mediaWrapper {
+            width: calc(340px + (100vw - 920px) / 2);
+        }
+    }
+
+    .contactsBlock {
+        .blockInner {
+            width: 350px;
+            padding: 30px 0 50px 30px;
+
+            &:before {
+                width: calc(100% + (100vw - 920px) / 2);
+            }
+        }
+
+        .mapWrapper {
+            width: calc(540px + (100vw - 920px) / 2);
+        }
+    }
+
+    .mediaGalleryItem {
+        .caption {
+            @include font(18px, 26px, null, null, null);
+            padding-bottom: 30px;
+        }
+
+        .listGallery {
+            margin: -30px -15px 0;
+
+            .item {
+                padding: 30px 15px 0;
+            }
+        }
+
+        &+.mediaGalleryItem {
+            margin-top: 30px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .pageHeader {
+        padding-top: 10px;
+
+        .bttnsBackWrapper {
+            display: table;
+        }
+
+        .burger {
+            display: block;
+        }
+
+        .mobInner {
+            @include flex-direction(column);
+            @include justify-content(space-between);
+            min-height: 100%;
+            padding: 40px 0;
+        }
+
+        .listMenu,
+        .listContacts {
+            li {
+                float: none;
+
+                &+li {
+                    margin-left: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .listSourceLinks {
+            width: auto;
+            margin-top: auto;
+        }
+
+        .phonesWrapper {
+            padding: 40px 0;
+
+            .timetable {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .linkContact {
+                display: table;
+                margin: 0 auto;
+            }
+        }
+
+        .mobWrapper {
+            position: absolute;
+            z-index: 10;
+            width: 0;
+            top: 100%;
+            height: calc(100vh - 90px);
+            left: 50%;
+            margin-left: 50vw;
+            padding: 0;
+            background-color: $mainColor;
+            opacity: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            border-top: 1px solid $whiteColor;
+            $trans: opacity 0.3s, margin-left 0.3s, width 0s 0.3s, padding 0s 0.3s;
+            @include transition($trans);
+
+            &.activeMobMenu {
+                width: 100vw;
+                opacity: 1;
+                margin-left: -50vw;
+                padding: 0 calc((100vw - 710px) / 2);
+                $trans: opacity 0.3s, margin-left 0.3s;
+                @include transition($trans);
+            }
+        }
+
+        .menuWrapper {
+            padding: 0;
+            margin: 0;
+        }
+
+        .listSourceLinks {
+            position: static;
+            top: auto;
+            padding: 0;
+            left: auto;
+            margin-top: 30px;
+            border-bottom: none;
+        }
+    }
+
+    .heroScreen {
+        display: block;
+        margin-top: 3px;
+    }
+
+    .bulletBlock {
+        .bulletInner {
+            display: block;
+
+            .bulletText {
+                width: 100%;
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .bulletBtns {
+                display: table;
+                margin: 20px auto 0;
+            }
+        }
+    }
+
+    .mainHero {
+        .backWrapper {
+            width: 100%;
+            height: 100%;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .heroInner {
+            height: auto;
+            display: block;
+            padding: 40px 0;
+        }
+
+        .heroCaption {
+            padding: 0;
+            width: 100%;
+
+            .caption {
+                display: inline;
+            }
+        }
+
+        .offers,
+        .aboutPage {
+            width: 100%;
+        }
+
+        .aboutPage,
+        .listOffers {
+            padding: 0;
+            margin-top: 30px;
+
+            &:before {
+                display: none;
+            }
+
+            li,
+            p {
+                @include font(null, null, $whiteColor, null, null);
+            }
+
+            li {
+                .icon {
+                    @include font(null, null, $whiteColor, null, null);
+                }
+            }
+        }
+
+        &.mainHeroInnerPage {
+            .backWrapper {
+                height: 100%;
+            }
+
+            .heroInner {
+                height: auto;
+            }
+        }
+    }
+
+    .serviceBlock {
+        .chapterBlock {
+            padding: 40px 0 50px;
+        }
+    }
+
+    .aboutBlock {
+        background-color: $whiteColor;
+
+        .blockInner {
+            width: 100%;
+            padding: 30px 0 50px;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .mediaWrapper {
+            position: static;
+            width: 100%;
+            top: auto;
+            right: auto;
+            height: 300px;
+        }
+    }
+
+    .contactsBlock {
+        background-color: $whiteColor;
+
+        .blockInner {
+            width: 100%;
+            padding: 30px 0 50px;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .mapWrapper {
+            position: relative;
+            width: 100%;
+            top: auto;
+            right: auto;
+            height: 300px;
+        }
+    }
+
+    .cardsMenuWrapper {
+        padding: 40px 0 50px;
+
+        .cardsMenu {
+            margin: 0 -15px;
+
+            .item {
+                padding: 0 15px;
+            }
+        }
+    }
+
+    .contactUsWrapper {
+        padding: 40px 0 50px;
+    }
+
+    .footerInner {
+
+        .leftSide,
+        .rightSide {
+            width: 200px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .logoWrapper {
+
+        img,
+        svg {
+            height: 60px;
+        }
+
+        svg {
+            max-width: 90px;
+        }
+    }
+
+    .pageHeader {
+        .mobWrapper {
+            height: calc(100vh - 80px);
+            padding: 0;
+
+            &.activeMobMenu {
+                padding: 0 calc((100vw - 580px) / 2);
+            }
+        }
+    }
+
+    .bulletBlock {
+        .bulletInner {
+            .bulletText {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .addHero {
+        padding: 20px 0;
+    }
+
+    .cardsMenuWrapper {
+        .cardMenuItem {
+            .inner {
+                padding: 25px 10px 30px;
+            }
+
+            .detailedWrapper {
+                padding-top: 20px;
+            }
+
+            .caption {
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            .imageWrapper {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+
+    .mediaGalleryItem {
+        .caption {
+            @include font(16px, 24px, null, null, null);
+        }
+    }
+}
+
+@media (max-width: 639px) {
+    .pageHeader {
+        .mobWrapper {
+            padding: 0;
+
+            &.activeMobMenu {
+                padding: 0 15px;
+            }
+        }
+    }
+
+    .mainHero {
+        .heroCaption {
+            .caption {
+                @include font(32px, 44px, null, null, null);
+            }
+        }
+    }
+
+    .aboutBlock {
+        .blockInner {
+            padding: 25px 0 40px;
+        }
+
+        .mediaWrapper {
+            height: 240px;
+        }
+    }
+
+    .contactsBlock {
+        .blockInner {
+            padding: 25px 0 40px;
+        }
+
+        .mapWrapper {
+            height: 240px;
+        }
+
+        .caption,
+        .val {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    .serviceBlock {
+        .chapterBlock {
+            padding: 30px 0 40px;
+        }
+    }
+
+    .cardsMenuWrapper {
+        padding: 30px 0 40px;
+
+        .cardsMenu {
+            @include flex-wrap(wrap);
+            margin: -25px 0 0;
+
+            .item {
+                width: 100%;
+                padding: 25px 0 0;
+            }
+        }
+
+        .cardMenuItem {
+            max-width: 290px;
+            margin: 0 auto;
+        }
+    }
+
+    .contactUsWrapper {
+        padding: 30px 0 40px;
+    }
+
+    .footerInner {
+
+        .leftSide,
+        .rightSide {
+            width: 100%;
+        }
+
+        .leftSide {
+            @include order(0);
+        }
+
+        .timetable,
+        .address {
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+    .bulletBlock {
+        .bulletInner {
+            .bulletText {
+                br {
+                    display: none;
+                }
+            }
+
+            .bulletBtns {
+                &>* {
+                    float: none;
+                }
+            }
+        }
+    }
+
+    .mainHero {
+        .listOffers {
+            li {
+                padding-left: 0;
+
+                .icon {
+                    position: static;
+                    top: auto;
+                    left: auto;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .addHero {
+        padding: 0;
+
+        .slideItem {
+            .slideContent {
+                padding: 20px 0 30px;
+            }
+        }
+    }
+
+    .aboutBlock {
+        .mediaWrapper {
+            height: 200px;
+        }
+    }
+
+    .footerInner {
+        .listContacts {
+            li {
+                float: none;
+
+                &+li {
+                    margin-left: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 359px) {
+    .mainHero {
+        .heroCaption {
+            .caption {
+                @include font(28px, 40px, null, null, null);
+            }
+        }
+
+        .listOffers {
+            li {
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .serviceBlock {
+        .captionSecond {
+            font-size: 26px;
+        }
+    }
+}

@@ -1,0 +1,697 @@
+/* scss --watch scss/style.scss:css/style.css */
+@include animation-keyframes(logoAnim) {
+    90% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    max-width: 1920px;
+    background-color: $secondColor;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    @include font(16px, 24px, $secondText, 300, null);
+
+    &.bodyMenu,
+    &.bodyModal {
+        overflow: hidden;
+    }
+}
+
+b,
+strong {
+    font-weight: 500;
+}
+
+.bodyInner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 0 20px;
+}
+
+.btnMini {
+    display: block;
+    white-space: nowrap;
+    padding: 9px 15px;
+    @include font(14px, 24px, $mainColor, normal, null);
+    @include border-radius(6px);
+    border: 1px solid $mainColor;
+    text-align: center;
+    width: 180px;
+    text-transform: uppercase;
+    $trans: background-color 0.3s, color 0.3s, border-color 0.3s;
+    @include transition($trans);
+
+    &:hover {
+        background-color: rgba($mainColor, 0.8);
+        color: $whiteColor;
+        border-color: transparent;
+    }
+
+    &.btnLight {
+        border-color: $whiteColor;
+        color: $whiteColor;
+
+        &:hover {
+            background-color: rgba($whiteColor, 0.8);
+            color: $mainColor;
+            border-color: transparent;
+        }
+    }
+
+    &.btnFill {
+        background-color: $mainColor;
+        color: $whiteColor;
+
+        &:hover {
+            background-color: rgba($mainColor, 0.8);
+            border-color: transparent;
+        }
+
+        &.btnLight {
+            background-color: $whiteColor;
+            color: $mainColor;
+
+            &:hover {
+                background-color: rgba($whiteColor, 0.8);
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+.btnMain {
+    display: table;
+    white-space: nowrap;
+    padding: 14px 25px;
+    font-family: 'Roboto';
+    @include font(16px, 24px, $mainColor, null, null);
+    text-transform: uppercase;
+    @include border-radius(6px);
+    border: 2px solid $mainColor;
+    text-align: center;
+    min-width: 220px;
+    $trans: color 0.3s, border-color 0.3s, background-color 0.3s;
+    @include transition($trans);
+
+    &:hover {
+        background-color: rgba($mainColor, 0.8);
+        color: $whiteColor;
+        border-color: transparent;
+    }
+
+    &.btnFill {
+        background-color: $mainColor;
+        color: $whiteColor;
+
+        &:hover {
+            background-color: rgba($mainColor, 0.8);
+            border-color: transparent;
+        }
+    }
+}
+
+.btnUnit {
+    display: block;
+    text-align: center;
+    @include font(16px, 28px, $mainColor, null, null);
+    padding: 8px 20px 12px;
+}
+
+.linkDetailed {
+    display: table;
+    position: relative;
+    @include font(16px, 20px, $mainColor, normal, null);
+    padding-right: 36px;
+    padding-left: 12px;
+
+    &:after {
+        content: '\e930';
+        display: block;
+        position: absolute;
+        font-family: 'icomoon';
+        @include font(16px, 20px, $mainColor, normal, null);
+        right: 12px;
+        top: 50%;
+        margin-top: -9px;
+        @include transition(right 0.3s);
+    }
+
+    &:hover {
+        &:after {
+            right: 0;
+        }
+    }
+}
+
+.captionSecond {
+    display: block;
+    @include font(40px, 48px, $mainText, 300, null);
+}
+
+.list {
+    li {
+        @include font(16px, 28px, $secondText, 300, null);
+
+        &+li {
+            margin-top: 10px;
+        }
+    }
+
+    .list {
+        margin-top: 28px;
+    }
+
+    &+p {
+        margin-top: 28px;
+    }
+
+    &.simpleList {
+        li {
+            position: relative;
+            padding-left: 24px;
+            font-style: italic;
+
+            &:before {
+                content: '\e906';
+                display: block;
+                font-family: 'icomoon';
+                font-style: normal;
+                position: absolute;
+                @include font(16px, 28px, $mainColor, normal, null);
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+
+    &.listNum {
+        &>li {
+            @include font(20px, 28px, $mainColor, 300, null);
+            z-index: 1;
+            position: relative;
+            padding-left: 48px;
+
+            .num {
+                display: block;
+                position: absolute;
+                @include font(44px, 44px, $mainColor, bold, null);
+                top: -8px;
+                z-index: -1;
+                left: 0;
+            }
+
+            &+li {
+                margin-top: 28px;
+            }
+        }
+    }
+}
+
+p {
+    @include font(16px, 28px, $secondText, 300, null);
+
+    &+p,
+    &+.list {
+        margin-top: 28px;
+    }
+}
+
+.blockCaption {
+    text-align: center;
+
+    p {
+        @include font(14px, 20px, $secondText, 300, null);
+        margin-top: 15px;
+    }
+}
+
+.blockContent {
+    margin-top: 35px;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+input,
+textarea {
+    @include border-radius(6px);
+    width: 100%;
+    background-color: $whiteColor;
+    border: 1px solid $borderColor;
+    font-family: 'Roboto';
+    @include box-shadow(0px 1px 10px transparent);
+    @include font(16px, 24px, $mainText, 300, null);
+    $trans: border-color 0.3s, box-shadow 0.3s;
+    @include transition($trans);
+
+    &:focus {
+        border-color: transparent;
+        @include box-shadow(0px 1px 10px rgba(#444655, 0.3));
+    }
+}
+
+input {
+    height: 52px;
+    padding: 0 25px;
+}
+
+textarea {
+    height: 120px;
+    padding: 13px 25px;
+}
+
+@mixin placeholder {
+    opacity: 0.8;
+    @include font(16px, null, $secondText, 300, null);
+    @include transition(opacity 0.3s);
+}
+
+@mixin placeholderFocus {
+    opacity: 0;
+}
+
+::-webkit-input-placeholder {
+    @include placeholder;
+}
+
+::-moz-placeholder {
+    @include placeholder;
+}
+
+:-moz-placeholder {
+    @include placeholder;
+}
+
+:-ms-input-placeholder {
+    @include placeholder;
+}
+
+:focus::-webkit-input-placeholder {
+    @include placeholderFocus;
+}
+
+:focus::-moz-placeholder {
+    @include placeholderFocus;
+}
+
+:focus:-moz-placeholder {
+    @include placeholderFocus;
+}
+
+:focus:-ms-input-placeholder {
+    @include placeholderFocus;
+}
+
+.validate {
+    label.error {
+        display: block;
+        position: absolute;
+        padding-left: 6px;
+        @include font(12px, 16px, $mainAccentColor, 300, null);
+        top: 100%;
+        left: 0;
+        margin-top: 5px;
+    }
+
+    textarea.error,
+    input.error {
+        color: $mainAccentColor;
+        border-color: $mainAccentColor;
+    }
+}
+
+.formContent {
+    .note {
+        @include font(14px, 20px, $secondText, 300, null);
+        margin-top: 34px;
+        text-align: center;
+    }
+
+    .btnWrapper {
+        display: table;
+        position: relative;
+        margin: 40px auto 0;
+        height: 56px;
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+
+        &.success {
+            p {
+                color: $mainColor;
+            }
+        }
+
+        &.error {
+            p {
+                color: $mainAccentColor;
+            }
+        }
+    }
+
+    .formInner {
+        margin: -30px -15px 0;
+        @include cfix;
+    }
+
+    .item {
+        float: left;
+        padding: 30px 15px 0;
+
+        &:first-child,
+        &:nth-child(2) {
+            width: 50%;
+        }
+
+        &:nth-child(3) {
+            width: 100%;
+        }
+    }
+}
+
+.formCaption {
+    display: block;
+    text-align: center;
+    padding-bottom: 35px;
+
+    p {
+        @include font(14px, 20px, null, null, null);
+        margin-top: 20px;
+    }
+}
+
+.form {
+    margin: 0 auto;
+    max-width: 710px;
+}
+
+.modal {
+    display: none;
+    @include border-radius(6px);
+    cursor: initial;
+}
+
+.fancybox-slide--html {
+    padding: 15px;
+
+    .fancybox-close-small {
+        background-color: $whiteColor;
+        @include font(20px, 20px, $secondText, normal, null);
+        @include transition(color 0.3s);
+
+        &:hover {
+            color: $mainColor;
+        }
+    }
+}
+
+.fancybox-bg {
+    background-color: $thirdColor;
+}
+
+.fancybox-inner {
+    cursor: pointer;
+}
+
+.fancybox-container {
+    height: 100vh;
+}
+
+.fancybox-infobar {
+    background-color: $whiteColor;
+    @include box-shadow($mainShadow);
+}
+
+.fancybox-infobar {
+    mix-blend-mode: normal;
+    @include font(14px, 44px, $secondText, null, null);
+}
+
+.fancybox-navigation .fancybox-button--arrow_left,
+.fancybox-navigation .fancybox-button--arrow_right {
+    padding: 0;
+}
+
+.fancybox-show-caption .fancybox-caption,
+.fancybox-show-infobar .fancybox-infobar,
+.fancybox-show-nav .fancybox-navigation .fancybox-button,
+.fancybox-show-toolbar .fancybox-toolbar {
+    $trans: color 0.3s, opacity 0.3s;
+    @include transition($trans);
+}
+
+.fancybox-caption,
+.fancybox-infobar,
+.fancybox-navigation .fancybox-button,
+.fancybox-toolbar {
+    $trans: color 0.3s, opacity 0.3s;
+    @include transition($trans);
+}
+
+.fancybox-button,
+.fancybox-button:link,
+.fancybox-button:visited {
+    color: $secondText;
+}
+
+.fancybox-button {
+    background-color: $whiteColor;
+    padding: 0;
+    @include font(20px, 44px, $secondText, normal, null);
+    text-align: center;
+    @include box-shadow($mainShadow);
+
+    &[disabled],
+    &[disabled]:hover {
+        color: $secondText;
+        opacity: 0.6;
+    }
+
+    &:hover {
+        color: $mainColor;
+    }
+}
+
+.fancybox-slide--image {
+    padding: 20px 0;
+}
+
+.fancybox-navigation .fancybox-button {
+    height: auto;
+    top: calc(50% - 22px);
+    width: 44px;
+
+    &[disabled],
+    &[disabled]:hover {
+        color: $secondText;
+        opacity: 0.6;
+    }
+}
+
+.fancybox-toolbar {
+    @include box-shadow($mainShadow);
+
+    .fancybox-button {
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .container {
+        width: 950px;
+        padding: 0 15px;
+    }
+
+    .btnMini {
+        width: 170px;
+    }
+
+    .btnUnit {
+        padding: 8px 10px 12px;
+    }
+
+    p {
+        @include font(null, 24px, null, null, null);
+
+        &+p {
+            margin-top: 24px;
+        }
+
+        &+.list {
+            margin-top: 24px;
+        }
+    }
+
+    .list {
+        li {
+            @include font(null, 24px, null, null, null);
+        }
+
+        .list {
+            margin-top: 24px;
+        }
+
+        &+p {
+            margin-top: 24px;
+        }
+
+        &.listNum {
+            &>li {
+                &+li {
+                    margin-top: 24px;
+                }
+            }
+        }
+    }
+
+    .captionSecond {
+        @include font(36px, 44px, null, null, null);
+    }
+
+    .blockContent {
+        margin-top: 30px;
+    }
+
+    .blockCaption {
+        p {
+            margin-top: 10px;
+        }
+    }
+
+    .formCaption {
+        padding-bottom: 30px;
+
+        p {
+            margin-top: 10px;
+        }
+    }
+
+    .formContent {
+        .note {
+            margin-top: 30px;
+        }
+
+        .btnWrapper {
+            margin: 35px auto 0;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .container {
+        width: 740px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 610px;
+    }
+
+    .linkDetailed {
+        @include font(14px, 18px, null, null, null);
+
+        &:after {
+            @include font(null, 18px, null, null, null);
+            margin-top: -8px;
+        }
+    }
+
+    .formContent {
+        .formInner {
+            margin: -30px -10px 0;
+        }
+
+        .item {
+            padding: 30px 10px 0;
+        }
+    }
+
+    input {
+        padding: 0 15px;
+    }
+
+    textarea {
+        padding: 13px 15px;
+    }
+
+    .fancybox-content {
+        padding: 50px 20px 30px;
+    }
+}
+
+@media (max-width: 639px) {
+    .container {
+        width: 100%;
+    }
+
+    .blockContent {
+        margin-top: 25px;
+    }
+
+    .captionSecond {
+        @include font(32px, 40px, null, null, null);
+    }
+
+    .formCaption {
+        padding-bottom: 25px;
+    }
+
+    .formContent {
+        .note {
+            margin-top: 25px;
+        }
+
+        .btnWrapper {
+            margin: 30px auto 0;
+        }
+
+        .item {
+
+            &:first-child,
+            &:nth-child(2) {
+                width: 100%;
+            }
+        }
+    }
+
+    .form {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 479px) {
+    .btnUnit {
+        padding: 5px 0 6px;
+    }
+
+    .captionSecond {
+        @include font(28px, 36px, null, null, null);
+    }
+
+    .list {
+        .list {
+            margin-left: -48px;
+        }
+    }
+}
+
+// ::selection {
+//     color: #fff;
+//     background-color: $mainColor;
+//     -webkit-text-fill-color: $whiteColor;
+// }

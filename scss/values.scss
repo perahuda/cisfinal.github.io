@@ -1,0 +1,69 @@
+// фон для картинки
+// rgba(39, 82, 124, 0.47) (#27527c)
+// футер
+// #2f3446
+
+$mainColor: #2a63d2;
+$mainColorHover: #799bff;
+$secondColor: #f3f4f9;
+$thirdColor: #dddddd;
+$whiteColor: #fff;
+$mainText: #363636;
+$secondText: #444655;
+$mainShadow: 0px 5px 10px rgba($secondText, 0.3);
+$borderColor: #dddddd;
+$mainAccentColor: #ff6578;
+
+@mixin iconContact {
+    padding-left: 32px;
+    position: relative;
+    opacity: 1;
+    @include transition(opacity 0.3s);
+
+    .icon {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -12px;
+        width: 24px;
+        height: 24px;
+        @include border-radius(50%);
+        text-align: center;
+        @include font(18px, 24px, inherit, normal, null);
+        @include transition(margin-top 0.3s);
+    }
+
+    &:hover {
+        opacity: 0.8;
+
+        .icon {
+            margin-top: -17px;
+        }
+    }
+}
+
+@mixin beforeLine {
+    display: table;
+    position: relative;
+    padding-left: 66px;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 48px;
+        height: 2px;
+        background-color: $mainColor;
+        left: 0;
+        bottom: 0;
+    }
+
+    @media (max-width: 1199px) {
+        padding-left: 0;
+
+        &:before {
+            display: none;
+        }
+    }
+}

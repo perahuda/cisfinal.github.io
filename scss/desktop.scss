@@ -1,0 +1,906 @@
+.logoWrapper {
+    @include invisLink;
+    opacity: 1;
+    @include transition(opacity 0.3s);
+
+    img,
+    svg {
+        height: 80px;
+    }
+
+    svg {
+        max-width: 120px;
+    }
+
+    .logoImage {
+
+        .cls-1,
+        .circle {
+            fill: $whiteColor;
+        }
+
+        .cls-2 {
+            fill: $thirdColor;
+            @include transition(fill 0.3s);
+        }
+
+        .cls-3 {
+            fill: none;
+        }
+
+        .circle {
+            opacity: 1;
+            @include animation-name(logoAnim);
+            @include animation-duration(1.5s);
+            @include animation-timing-function(ease-in-out);
+            @include animation-iteration-count(infinite);
+        }
+
+        .circle-5 {
+            @include animation-delay(-1.2s);
+        }
+
+        .circle-4 {
+            @include animation-delay(-0.9s);
+        }
+
+        .circle-3 {
+            @include animation-delay(-0.6s);
+        }
+
+        .circle-2 {
+            @include animation-delay(-0.3s);
+        }
+
+        .circle-1 {
+            @include animation-delay(0s);
+        }
+    }
+
+    &:hover {
+        opacity: 0.8;
+
+        .logoImage {
+            .circle {
+                @include animation-play-state(paused);
+            }
+
+            .cls-2 {
+                fill: $whiteColor;
+            }
+        }
+    }
+}
+
+header {
+    background-color: $mainColor;
+}
+
+.pageHeader {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+    height: 120px;
+    position: relative;
+
+    .bttnsBackWrapper {
+        display: none;
+        padding-bottom: 40px;
+    }
+
+    .burger {
+        display: none;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+
+        span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            background-color: #fff;
+            top: 50%;
+            $trans: width 0.3s, opacity 0.3s, transform 0.3s;
+            @include transition($trans);
+
+            &:first-child {
+                margin-top: -10px;
+                width: 100%;
+                left: 50%;
+                margin-left: -16px;
+            }
+
+            &:nth-child(2) {
+                margin-top: -1px;
+                width: 75%;
+                right: 0;
+            }
+
+            &:nth-child(3) {
+                margin-top: 8px;
+                width: 100%;
+                left: 50%;
+                margin-left: -16px;
+            }
+        }
+
+        &:hover {
+            span {
+                opacity: 0.8;
+
+                &:nth-child(2) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.openedBurger {
+            span {
+                &:first-child {
+                    @include transform(rotate(-45deg));
+                    margin-top: 0;
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    @include transform(rotate(45deg));
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    .mobWrapper {
+        width: calc(100% - 120px);
+    }
+
+    .mobInner {
+        @include flexbox;
+        @include align-items(center);
+    }
+
+    .listMenu,
+    .listContacts,
+    .listSourceLinks {
+        @include cfix;
+
+        li {
+            float: left;
+
+            &+li {
+                margin-left: 30px;
+            }
+        }
+    }
+
+    .menuWrapper {
+        margin: 0 auto;
+        padding: 0 40px;
+
+        .linkMenu {
+            display: block;
+            @include font(16px, 36px, $whiteColor, null, null);
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            opacity: 1;
+            $trans: padding-top 0.3s, padding-bottom 0.3s, opacity 0.3s;
+            @include transition($trans);
+
+            &:hover {
+                padding-bottom: 10px;
+                padding-top: 0;
+                opacity: 0.8;
+            }
+
+            &.active {
+                padding-bottom: 5px;
+                padding-top: 5px;
+                opacity: 1;
+                border-bottom: 1px solid $whiteColor;
+            }
+        }
+    }
+
+    .phonesWrapper {
+        .linkContact {
+            display: block;
+            @include font(16px, 24px, $whiteColor, null, null);
+            @include iconContact;
+
+            &:after {
+                background-color: $whiteColor;
+            }
+        }
+
+        .timetable {
+            display: block;
+            @include font(14px, 24px, $whiteColor, null, null);
+            margin-top: 5px;
+        }
+    }
+
+    .listSourceLinks {
+        padding-left: 40px;
+
+        .linkSource {
+            display: block;
+            @include font(14px, 24px, $whiteColor, null, null);
+            @include iconContact;
+            height: 24px;
+        }
+    }
+}
+
+.heroScreen {
+    @include flexbox;
+    @include flex-direction(column);
+}
+
+.bulletBlock {
+    padding: 20px 0;
+    background-color: $whiteColor;
+    position: relative;
+    z-index: 2;
+    @include order(-1);
+
+    .bulletInner {
+        @include flexbox;
+        @include align-items(center);
+
+        .bulletText {
+            @include beforeLine;
+            width: 640px;
+            padding-right: 40px;
+            @include font(20px, 28px, $mainText, 300, null);
+        }
+
+        .bulletBtns {
+            @include cfix;
+            margin-left: auto;
+
+            &>* {
+                float: left;
+            }
+        }
+    }
+}
+
+.mainHero {
+    position: relative;
+    z-index: 1;
+
+    .backWrapper {
+        position: absolute;
+        background-color: $mainColor;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 368px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            border-right: 125px solid transparent;
+            border-left: 125px solid $mainColor;
+            border-bottom: 184px solid $mainColor;
+            border-top: 184px solid transparent;
+            left: 100%;
+            top: 0;
+        }
+
+        .dots {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 0;
+            background-image: url(../img/dot.svg);
+            @include back-img(8px 8px, center, repeat);
+        }
+    }
+
+    .heroInner {
+        @include flexbox;
+        @include align-items(center);
+        padding: 20px 0;
+        position: relative;
+        height: 368px;
+        z-index: 1;
+    }
+
+    .heroCaption {
+        padding: 60px 80px 60px 0;
+        width: calc(100% - 480px);
+
+        .caption {
+            display: block;
+            @include font(44px, 56px, $whiteColor, bold, null);
+        }
+    }
+
+    .offers,
+    .aboutPage {
+        width: 480px;
+    }
+
+    .listOffers,
+    .aboutPage {
+        display: block;
+        padding: 40px 20px 40px 0;
+        z-index: 1;
+        position: relative;
+        @include cfix;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 100%;
+            width: calc(100% + 40px);
+            top: 0;
+            left: -40px;
+            @include border-radius(6px);
+            background-color: $whiteColor;
+            @include box-shadow($mainShadow);
+            z-index: -1;
+        }
+
+        li {
+            @include cfix;
+
+            &+li {
+                margin-top: 40px;
+            }
+
+            .icon {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include font(48px, 48px, $mainColor, null, null);
+            }
+        }
+
+        li,
+        p {
+            @include font(18px, 26px, $secondText, 300, null);
+            @include beforeLine;
+        }
+
+        .offerCard {
+            display: block;
+        }
+    }
+
+    &.mainHeroInnerPage {
+        .backWrapper {
+            height: 220px;
+
+            &:before {
+                border-bottom: 110px solid $mainColor;
+                border-top: 110px solid transparent;
+            }
+        }
+
+        .heroInner {
+            height: 220px;
+        }
+    }
+}
+
+.addHero {
+    padding: 30px 0;
+
+    .slideItem {
+        width: calc(50% + 250px);
+
+        &+.slideItem {
+            border-top: 1px solid $mainColor;
+        }
+
+        .slideHead {
+            cursor: pointer;
+            position: relative;
+            padding-left: 48px;
+            height: 60px;
+            @include flexbox;
+            @include align-items(center);
+
+            &:before,
+            &:after {
+                display: block;
+                position: absolute;
+                font-family: 'icomoon';
+                @include font(24px, 24px, $mainColor, normal, null);
+                left: 0;
+                top: 50%;
+                margin-top: -12px;
+                $trans: left 0.3s, opacity 0.3s;
+                @include transition($trans);
+            }
+
+            &:before {
+                content: '\e902';
+            }
+
+            &:after {
+                content: '\e901';
+                opacity: 0;
+            }
+
+            &.slideOpened {
+                &:before {
+                    opacity: 0;
+                }
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+
+                &:before,
+                &:after {
+                    left: 12px;
+                }
+            }
+        }
+
+        .caption {
+            display: block;
+            @include font(20px, 24px, $mainColor, 300, null);
+        }
+
+        .slideContent {
+            padding: 20px 0 30px 48px;
+
+            li {
+                @include font(16px, 28px, $secondText, 300, null);
+            }
+
+            .mean {
+                margin-top: 28px;
+            }
+
+            .meanCaption {
+                display: block;
+                @include font(16px, 28px, $mainText, normal, null);
+            }
+
+            .meanList {
+                margin-top: 15px;
+
+                li {
+                    position: relative;
+                    padding-left: 24px;
+                    font-style: italic;
+
+                    &:before {
+                        content: '\e906';
+                        display: block;
+                        font-family: 'icomoon';
+                        font-style: normal;
+                        position: absolute;
+                        @include font(16px, 28px, $mainColor, normal, null);
+                        left: 0;
+                        top: 0;
+                    }
+
+                    &+li {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .slideContent {
+        display: none;
+    }
+}
+
+.aboutBlock {
+    position: relative;
+
+    .blockCaption {
+        text-align: left;
+    }
+
+    .blockInner {
+        width: calc(100% - 440px);
+        padding: 40px 40px 60px 0;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+            top: 0;
+            background-color: $whiteColor;
+            right: 0;
+            width: calc(100% + (100vw - 1160px) / 2);
+        }
+    }
+
+    .mediaWrapper {
+        position: absolute;
+        height: 100%;
+        width: calc(400px + (100vw - 1160px) / 2);
+        top: 0;
+        right: 0;
+        @include back-img(cover, center, no-repeat);
+    }
+}
+
+.cardsMenuWrapper {
+    padding: 50px 0 60px;
+
+    .blockContent {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 710px;
+    }
+
+    .cardsMenu {
+        @include flexbox;
+        @include align-items(stretch);
+        margin: 0 -20px;
+
+        .item {
+            width: 50%;
+            padding: 0 20px;
+        }
+    }
+
+    .cardMenuItem {
+        @include flexbox;
+        @include flex-direction(column);
+        height: 100%;
+
+        .inner {
+            @include flexbox;
+            @include flex-direction(column);
+            height: 100%;
+            width: 100%;
+            padding: 30px 15px 40px;
+            text-align: center;
+            @include invisLink;
+            background-color: $whiteColor;
+            border: 1px solid $thirdColor;
+            @include box-shadow(0px 1px 10px transparent);
+            @include border-radius(6px);
+            $trans: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            @include transition($trans);
+
+            &:hover {
+                border-color: transparent;
+                @include box-shadow(0px 1px 10px rgba($secondText, 0.3));
+
+                .linkDetailed {
+                    &:after {
+                        right: 0;
+                    }
+                }
+
+            }
+        }
+
+        .imageWrapper {
+            width: 120px;
+            height: 120px;
+            @include flexbox;
+            @include align-items(center);
+            @include justify-content(center);
+            margin: 0 auto;
+
+            img {
+                max-height: 100%;
+            }
+        }
+
+        .caption {
+            text-transform: uppercase;
+            @include font(18px, 24px, $mainText, normal, null);
+        }
+
+        p {
+            margin-top: 20px;
+            @include font(14px, 24px, $secondText, null, null);
+            padding-bottom: 20px;
+        }
+
+        .linkDetailed {
+            margin: auto auto 0;
+        }
+
+        .detailedWrapper {
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            height: calc(100% - 120px);
+            padding-top: 25px;
+        }
+    }
+}
+
+.contactsBlock {
+    @include cfix;
+    position: relative;
+
+    .blockInner {
+        width: 440px;
+        float: right;
+        position: relative;
+        z-index: 1;
+        padding: 40px 0 60px 40px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+            top: 0;
+            background-color: $whiteColor;
+            left: 0;
+            width: calc(100% + (100vw - 1160px) / 2);
+        }
+    }
+
+    .blockCaption {
+        text-align: left;
+    }
+
+    .caption {
+        display: block;
+        @include font(18px, 24px, $mainText, normal, null);
+        padding-bottom: 10px;
+    }
+
+    .val {
+        display: table;
+        @include font(18px, 24px, $secondText, null, null);
+
+        &+.val {
+            margin-top: 10px;
+        }
+    }
+
+    .infoLine {
+        &+.infoLine {
+            margin-top: 20px;
+        }
+
+        a {
+            @include transition(color 0.3s);
+
+            &:hover {
+                color: $mainColor;
+            }
+        }
+    }
+
+    .mapWrapper {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: calc(680px + (100vw - 1160px) / 2);
+
+        .map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .markPlace {
+            width: 60px;
+            padding: 5px 10px;
+            background-color: $mainColor;
+            @include border-radius(6px);
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                border: 6px solid transparent;
+                border-top: 6px solid $mainColor;
+                border-bottom: 6px solid transparent;
+                top: 100%;
+                left: 50%;
+                margin-left: -6px;
+            }
+        }
+
+        .markLogo {
+            max-height: 100%;
+            margin: 0 auto;
+        }
+
+        [class*="balloon_layout_normal"] {
+            box-shadow: none;
+            @include border-radius(6px);
+        }
+
+        [class*="balloon__layout"] {
+            @include border-radius(6px);
+        }
+
+        [class*="balloon__layout"],
+        [class*="balloon__content"] {
+            background-color: rgba($mainColor, 0.7);
+        }
+
+        [class*="balloon__content"] {
+            padding: 5px 10px;
+            min-width: 0;
+        }
+
+        [class*="balloon__tail"] {
+            background-color: rgba($mainColor, 0.7);
+
+            &:after {
+                background-color: rgba($mainColor, 0.7);
+            }
+        }
+    }
+}
+
+.contactUsWrapper {
+    position: relative;
+    padding: 50px 0 60px;
+
+    &.light {
+        background-color: $whiteColor;
+    }
+}
+
+footer {
+    background-color: $mainColor;
+    padding: 20px 0;
+}
+
+.footerInner {
+    position: relative;
+    @include flexbox;
+    @include align-items(center);
+    @include flex-wrap(wrap);
+
+    .leftSide {
+        @include order(-1);
+    }
+
+    .leftSide,
+    .rightSide {
+        width: 400px;
+    }
+
+    .logoWrapper {
+        margin: 0 auto;
+    }
+
+    .listContacts {
+        @include cfix;
+        margin: 0 auto;
+        display: table;
+
+        li {
+            float: left;
+
+            &+li {
+                margin-left: 30px;
+            }
+        }
+    }
+
+    .linkContact {
+        display: block;
+        @include font(16px, 24px, $whiteColor, null, null);
+        @include iconContact;
+
+        &:after {
+            background-color: $whiteColor;
+        }
+    }
+
+    .timetable,
+    .address {
+        display: block;
+        @include font(14px, 24px, $whiteColor, null, null);
+    }
+
+    .contactsWrapper {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .timetable {
+        text-align: right;
+    }
+
+    .linkSource {
+        display: block;
+        @include font(14px, 24px, $whiteColor, null, null);
+        @include iconContact;
+        height: 24px;
+    }
+}
+
+.serviceBlock {
+    .blockCaption {
+        text-align: left;
+    }
+
+    .chapterBlock {
+        padding: 50px 0 60px;
+
+        &:nth-child(2n) {
+            background-color: $whiteColor;
+        }
+    }
+}
+
+.mediaGalleryItem {
+    .caption {
+        display: block;
+        @include font(20px, 28px, $mainColor, normal, null);
+        text-transform: uppercase;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .listGallery {
+        @include flexbox;
+        @include flex-wrap(wrap);
+        @include justify-content(center);
+        margin: -40px -20px 0;
+
+        .item {
+            width: 290px;
+            padding: 40px 20px 0;
+        }
+
+        .galleryLink {
+            height: 280px;
+            @include flexbox;
+            @include align-items(center);
+            @include justify-content(center);
+            position: relative;
+            background-color: $whiteColor;
+            border: 1px solid $borderColor;
+            @include box-shadow(0px 1px 10px transparent);
+            @include border-radius(6px);
+            padding: 20px;
+            $trans: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            @include transition($trans);
+
+            &:hover {
+                border-color: transparent;
+                @include box-shadow(0px 1px 10px rgba($secondText, 0.3));
+            }
+
+            img {
+                max-height: 100%;
+            }
+        }
+    }
+
+    &+.mediaGalleryItem {
+        margin-top: 40px;
+    }
+}
